@@ -1,0 +1,78 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <h2>Uppgift 1</h2>
+    <input type="text" id="user_in">
+    <input type="text" id="user_in2">
+    <button onclick="addnumbers()">addera</button>
+   
+
+    <h2>Uppgift 2</h2>
+    <input type="text" id="user_in2_1">
+    <input type="text" id="user_in2_2">
+    <input type="text" id="user_in2_3">
+    <button onclick="averagenumber()">medelvärdet</button>
+    <p id="result1"></p>
+
+     <h2>Uppgift 3</h2>
+     <input type="text" id="user_in3_1">
+     <input type="text" id="user_in3_2">
+      <button onclick="calc()">räkna</button>
+      <p id="result2"></p>
+    
+
+    <h2>Uppgift 4</h2>
+    <p id="result3"></p>
+
+    <h2>Uppgift 5</h2>
+    <input type="text" id="timmar">
+    <input type="text" id="minuter" >
+    <input type="text" id="sekunder">
+    <button onclick="totalseconds()">totala sekunder</button>
+    <p id="result4"></p>
+
+<script>
+  // Uppgift 1 //
+  function addnumbers() {
+     let x = Number(document.getElementById("user_in").value);
+     let y = Number(document.getElementById("user_in2").value);
+     let z = x + y;
+     alert(z);
+  }
+
+  // Uppgift 2 //
+  function averagenumber() {
+     let x = Number(document.getElementById("user_in2_1").value);
+     let y = Number(document.getElementById("user_in2_2").value);
+     let z = Number(document.getElementById("user_in2_3").value);
+     let average = (x + y + z) / 3;
+     document.getElementById("result1").textContent = average;
+  }
+
+  // Uppgift 3 //
+  function calc(){
+     let pris  = Number(document.getElementById("user_in3_1").value);
+     let rabbat  = Number(document.getElementById("user_in3_2").value);
+     let z = pris - (pris * rabbat / 100);
+     document.getElementById("result2").textContent = z;
+  }
+
+  // Uppgift 4 //
+  let resten = 123456 % 99;
+  document.getElementById("result3").textContent = resten;
+
+  // Uppgift 5 //
+ function totalseconds() {
+     let h = Number(document.getElementById("timmar").value);
+     let m = Number(document.getElementById("minuter").value);
+     let s = Number(document.getElementById("sekunder").value);
+     let total = h*3600 + m*60 + s;
+     document.getElementById("result4").textContent = total + " sekunder";
+}
+</script>
+</body>
+</html>

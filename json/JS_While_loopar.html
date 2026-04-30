@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>While uppgifter</title>
+</head>
+
+<body>
+
+<div>
+
+<label>Tal 1</label><br>
+<input type="text" id="user_in"><br><br>
+
+<label>Tal 2</label><br>
+<input type="text" id="user_in2"><br><br>
+
+<button onclick="u1a()">Uppgift 1a</button>
+<button onclick="u1b()">Uppgift 1b</button>
+<button onclick="u2()">Uppgift 2</button>
+<button onclick="u3()">Uppgift 3</button>
+<button onclick="u4()">Uppgift 4</button>
+<button onclick="u5a()">Uppgift 5a</button>
+<button onclick="u5b()">Uppgift 5b</button>
+<button onclick="u5c()">Uppgift 5c</button>
+<button onclick="u6()">Uppgift 6</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+function u1a(){
+    let counter = 1;
+    let res = "";
+
+    while(counter <= 100){
+        res += counter + "<br>";
+        counter++;
+    }
+
+    document.getElementById("result").innerHTML += "<p><strong>Uppgift 1a:</strong><br>" + res + "</p>";
+}
+
+function u1b(){
+    let counter = 1;
+    let res = "";
+
+    while(counter <= 100){
+        res += counter + "<br>";
+        counter++;
+    }
+
+    document.getElementById("result").innerHTML += "<p><strong>Uppgift 1b:</strong><br>" + res + "</p>";
+}
+
+function u2(){
+    let counter = 2;
+    let res = "";
+
+    while(counter <= 100){
+        res += counter + "<br>";
+        counter += 2;
+    }
+
+    document.getElementById("result").innerHTML += "<p><strong>Uppgift 2:</strong><br>" + res + "</p>";
+}
+
+function u3(){
+    let counter = 1;
+    let sum = 0;
+
+    while(counter <= 750){
+        sum += counter;
+        counter++;
+    }
+
+    document.getElementById("result").innerHTML += "<p><strong>Uppgift 3:</strong><br>" + sum + "</p>";
+}
+
+function u4(){
+    let num = Number(document.getElementById("user_in").value);
+    let counter = 1;
+    let res = "";
+
+    while(counter <= 100){
+        res += counter * num + "<br>";
+        counter++;
+    }
+
+    document.getElementById("result").innerHTML += "<p><strong>Uppgift 4:</strong><br>" + res + "</p>";
+}
+
+function u5a(){
+    let num = Number(document.getElementById("user_in").value);
+    let counter = 1;
+    let sum = 0;
+
+    while(counter <= num){
+        sum += counter;
+        counter++;
+    }
+
+    document.getElementById("result").innerHTML += "<p><strong>Uppgift 5a:</strong><br>" + sum + "</p>";
+}
+
+function u5b(){
+    let num1 = Number(document.getElementById("user_in").value);
+    let num2 = Number(document.getElementById("user_in2").value);
+    let counter = num1;
+    let sum = 0;
+
+    while(counter <= num2){
+        sum += counter;
+        counter++;
+    }
+
+    document.getElementById("result").innerHTML += "<p><strong>Uppgift 5b:</strong><br>" + sum + "</p>";
+}
+
+function u5c(){
+    let num1 = Number(document.getElementById("user_in").value);
+    let num2 = Number(document.getElementById("user_in2").value);
+    let counter = num1;
+    let res = "";
+    let plus = true;
+
+    while(counter <= num2){
+        if(plus){
+            res += counter;
+        } else{
+            res += "-" + counter;
+        }
+        plus = !plus;
+        counter++;
+    }
+
+    document.getElementById("result").innerHTML += "<p><strong>Uppgift 5c:</strong><br>" + res + "</p>";
+}
+
+function u6(){
+    let counter = 1;
+    let res = "";
+
+    while(counter <= 1000){
+        if(counter % 3 == 0 && counter % 5 == 0){
+            res += "fizzbuzz<br>";
+        }
+        else if(counter % 3 == 0){
+            res += "fizz<br>";
+        }
+        else if(counter % 5 == 0){
+            res += "buzz<br>";
+        }
+        else{
+            res += counter + "<br>";
+        }
+        counter++;
+    }
+
+    document.getElementById("result").innerHTML += "<p><strong>Uppgift 6:</strong><br>" + res + "</p>";
+}
+
+</script>
+
+</body>
+</html>

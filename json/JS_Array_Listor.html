@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<button onclick="uppgift1()">Uppgift 1 (Medelvärde)</button>
+<button onclick="uppgift2()">Uppgift 2 (Max/Min)</button>
+<button onclick="uppgift3()">Uppgift 3 (Jämna tal)</button>
+
+<br><br>
+
+<input id="input">
+<button onclick="add()">Lägg till</button>
+<button onclick="remove()">Ta bort index</button>
+
+<ul id="lista"></ul>
+
+<p id="res"></p>
+
+<script>
+
+// uppgift 1
+function uppgift1(){
+    let lista = [1,2,3,4,5];
+    let summa = 0;
+
+    for(let i = 0; i < lista.length; i++){
+        summa = summa + lista[i];
+    }
+
+    let medel = summa / lista.length;
+
+    document.getElementById("res").innerHTML = "Medelvärde: " + medel;
+}
+
+
+// uppgift 2
+function uppgift2(){
+    let lista = [-3, -5, 3, 10, 5];
+
+    let max = lista[0];
+    let min = lista[0];
+
+    for(let i = 0; i < lista.length; i++){
+        if(lista[i] > max){
+            max = lista[i];
+        }
+
+        if(lista[i] < min){
+            min = lista[i];
+        }
+    }
+
+    document.getElementById("res").innerHTML = 
+        "Max: " + max + " | Min: " + min;
+}
+
+
+//uppgift 3
+function uppgift3(){
+    let lista = [1,2,3,4,5];
+    let nyLista = [];
+
+    for(let i = 0; i < lista.length; i++){
+        if(lista[i] % 2 === 0){
+            nyLista.push(lista[i]);
+        }
+    }
+
+    document.getElementById("res").innerHTML = 
+        "Jämna tal: " + nyLista;
+}
+
+
+//uppgift 4
+let inkopslista = [];
+
+function show(){
+    let ul = document.getElementById("lista");
+    ul.innerHTML = "";
+
+    for(let i = 0; i < inkopslista.length; i++){
+        ul.innerHTML += "<li>" + i + ": " + inkopslista[i] + "</li>";
+    }
+}
+
+function add(){
+    let value = document.getElementById("input").value;
+    inkopslista.push(value);
+    show();
+}
+
+function remove(){
+    let index = prompt("Vilket index?");
+    inkopslista.splice(index, 1);
+    show();
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>JS For Loop Enkel</title>
+</head>
+<body>
+
+<h2>Uppgift 1</h2>
+<button onclick="uppgift1()">1-100</button>
+
+<h2>Uppgift 2</h2>
+<button onclick="uppgift2()">Jämna 1-100</button>
+
+<h2>Uppgift 3</h2>
+<button onclick="uppgift3()">Summa 1-750</button>
+
+<h2>Uppgift 4</h2>
+<label for="num4">Tal:</label><br>
+<input type="number" id="num4"><br>
+<button onclick="uppgift4()">Första 100 delbara</button>
+
+<h2>Uppgift 5a</h2>
+<label for="num5">Tal:</label><br>
+<input type="number" id="num5"><br>
+<button onclick="uppgift5a()">Summa 1-till-tal</button>
+
+<h2>Uppgift 5b & 5c</h2>
+<label for="num5b1">Första tal:</label><br>
+<input type="number" id="num5b1"><br>
+<label for="num5b2">Andra tal:</label><br>
+<input type="number" id="num5b2"><br>
+<button onclick="uppgift5b()">Summa mellan</button>
+<button onclick="uppgift5c()">+/- mellan</button>
+
+<h2>Uppgift 6 Burr</h2>
+<label for="burr">Burrtal 2-9:</label><br>
+<input type="number" id="burr"><br>
+<button onclick="uppgift6()">Starta Burr</button>
+
+<p id="result"></p>
+
+<script>
+// Uppgift 1
+function uppgift1(){
+    let text = "";
+    for(let i=1;i<=100;i++) text += i+"<br>";
+    document.getElementById("result").innerHTML = text;
+}
+
+// Uppgift 2
+function uppgift2(){
+    let text = "";
+    for(let i=2;i<=100;i+=2) text += i+"<br>";
+    document.getElementById("result").innerHTML = text;
+}
+
+// Uppgift 3
+function uppgift3(){
+    let sum=0;
+    for(let i=1;i<=750;i++) sum+=i;
+    document.getElementById("result").innerHTML = sum;
+}
+
+// Uppgift 4
+function uppgift4(){
+    let num = document.getElementById("num4").value;
+    let text = "";
+    for(let i=1;i<=100;i++) text += i*num + "<br>";
+    document.getElementById("result").innerHTML = text;
+}
+
+// Uppgift 5a
+function uppgift5a(){
+    let num = document.getElementById("num5").value;
+    let sum=0,text="";
+    for(let i=1;i<=num;i++){ sum+=i; text += i+(i<num?"+":""); }
+    document.getElementById("result").innerHTML = text+" = "+sum;
+}
+
+// Uppgift 5b
+function uppgift5b(){
+    let a=Number(document.getElementById("num5b1").value);
+    let b=Number(document.getElementById("num5b2").value);
+    if(a>b){ let t=a;a=b;b=t; }
+    let sum=0;
+    for(let i=a;i<=b;i++) sum+=i;
+    document.getElementById("result").innerHTML = sum;
+}
+
+// Uppgift 5c
+function uppgift5c(){
+    let a=Number(document.getElementById("num5b1").value);
+    let b=Number(document.getElementById("num5b2").value);
+    if(a>b){ let t=a;a=b;b=t; }
+    let text="";
+    for(let i=a;i<=b;i++){
+        if(i==a) text+=i;
+        else text+=( (i-a)%2==1 ? "+" : "-" ) + i;
+    }
+    document.getElementById("result").innerHTML = text;
+}
+
+// Uppgift 6 Burr
+function uppgift6(){
+    let b=document.getElementById("burr").value;
+    let text="";
+    for(let i=1;i<=1000;i++){
+        text += (i%b==0 || i.toString().includes(b)) ? "burr<br>" : i+"<br>";
+    }
+    document.getElementById("result").innerHTML = text;
+}
+</script>
+
+</body>
+</html>

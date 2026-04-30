@@ -1,0 +1,138 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-If/Else/ELSE</title>
+</head>
+<body>
+
+<input type="text" id="age">
+<button onclick="check()">Klicka</button>
+<p id="result"></p>
+
+
+<input type="text" id="a">
+<input type="text" id="b">
+<button onclick="compare()">Klicka</button>
+<p id="result"></p>
+
+
+<input type="text" id="price">
+<button onclick="rabatt()">Klicka</button>
+<p id="result"></p>
+
+
+<input type="text" id="x">
+<input type="text" id="y">
+<input type="text" id="z">
+<button onclick="largest()">Klicka</button>
+<p id="result"></p>
+
+
+
+<input type="text" id="num">
+<button onclick="checkNumber()">Klicka</button>
+<p id="result"></p>
+
+
+<input type="text" id="year">
+<button onclick="leap()">Klicka</button>
+<p id="result"></p>
+
+
+<input type="text" id="n1">
+<input type="text" id="n2">
+<select id="op">
+
+    
+<option value="+">+</option>
+<option value="-">-</option>
+<option value="*">*</option>
+<option value="/">/</option>
+
+
+
+</body>
+</html>
+
+<script>
+//Uppgift 1
+function check(){
+    let age = parseInt(document.getElementById("age").value);
+
+    if(age >= 13){
+        document.getElementById("result").innerHTML = "Du får jobba";
+    }
+    else{
+        document.getElementById("result").innerHTML = "Du är för ung";
+    }
+}
+//uppgift 2
+function compare(){
+    let a = parseInt(document.getElementById("a").value);
+    let b = parseInt(document.getElementById("b").value);
+
+    if(a > b){
+        document.getElementById("result").innerHTML = a + " är störst";
+    }
+    else{
+        document.getElementById("result").innerHTML = b + " är störst";
+    }
+}
+
+//uppgift 3
+function rabatt(){
+    let price = parseInt(document.getElementById("price").value);
+    let sum = price;
+
+    if(price >= 10000){
+        sum = price * 0.7;
+    }
+    else if(price >= 5000){
+        sum = price * 0.8;
+    }
+    else if(price >= 1000){
+        sum = price * 0.9;
+    }
+
+    document.getElementById("result").innerHTML = "Du betalar: " + sum + " kr";
+}
+//uppgift 4
+function largest(){
+    let x = parseInt(document.getElementById("x").value);
+    let y = parseInt(document.getElementById("y").value);
+    let z = parseInt(document.getElementById("z").value);
+
+    if(x > y && x > z){
+        document.getElementById("result").innerHTML = x + " är störst";
+    }
+    else if(y > z){
+        document.getElementById("result").innerHTML = y + " är störst";
+    }
+    else{
+        document.getElementById("result").innerHTML = z + " är störst";
+    }
+}
+//uppgift 5
+function checkNumber(){
+    let num = parseInt(document.getElementById("num").value);
+
+    if(num % 2 == 0){
+        document.getElementById("result").innerHTML = "Jämnt tal";
+    }
+    else{
+        document.getElementById("result").innerHTML = "Udda tal";
+    }
+}
+//uppgift 6
+function leap(){
+    let year = parseInt(document.getElementById("year").value);
+
+    if((year % 4 == 0 && year % 100 != 0) || year % 400 == 0){
+        document.getElementById("result").innerHTML = "Skottår";
+    }
+    else{
+        document.getElementById("result").innerHTML = "Inte skottår";
+    }
+}
+</script>

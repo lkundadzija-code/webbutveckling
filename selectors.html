@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="selectors.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Selektorer - Vilka rader påverkas av olika selektorer?</h1>
+    <p>Rad 1</p>
+    <div>
+        <nav>
+            <p>Rad 2</p>
+        </nav>
+        <div>
+            <p>Rad 3</p>
+            <p>Rad 4</p>
+        </div>
+        <p>Rad 5</p>
+    </div>
+    <p>Rad 6</p>
+    <p>Rad 7</p>
+
+    <div class="exempel1">
+        <p>Rad 8</p>
+    </div>
+    <div class="exempel2">
+        <p>Rad 9</p>
+    </div>
+    <div class="exempel1 exempel2">
+        <p>Rad 10</p>
+    </div>
+    <p class="exempel1">
+        Rad 11
+    </p>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <title>JS Introduktion</title>
+</head>
+
+<body>
+
+    <h2>Uppgift 1</h2>
+    <input type="text" id="user_in">
+    <input type="text" id="user_in2">
+    <button onclick="copyText()">Flytta text</button>
+
+    <h2>Uppgift 2</h2>
+    <input type="text" id="text1">
+    <input type="text" id="text2">
+    <button onclick="printText()">Skriv ut</button>
+    <p id="result"></p>
+
+    <h2>Uppgift 3</h2>
+    <input type="number" id="celsius">
+    <button onclick="toKelvin()">C till K</button>
+    <p id="kelvin"></p>
+
+   
+    <h2>Uppgift 4</h2>
+    <p id="counter">0</p>
+    <button onclick="plus()">+</button>
+    <button onclick="minus()">-</button>
+
+    <h2>Uppgift 5</h2>
+    <p id="class_text">Hej Klassen</p>
+    <button onclick="addBg()">Lägg till klass</button>
+    <button onclick="removeBg()">Ta bort klass</button>
+
+   
+    <h2>Uppgift 6</h2>
+    <p id="hideMe">Du kan inte se texten hahahahha</p>
+    <button onclick="hideText()">Göm text</button>
+
+    <script>
+        // Uppgift 1//
+        function copyText() {
+            document.getElementById("user_in2").value =
+            document.getElementById("user_in").value;
+        }
+
+        // Uppgift 2//
+        function printText() {
+            let a = document.getElementById("text1").value;
+            let b = document.getElementById("text2").value;
+            document.getElementById("result").innerHTML = a + " " + b;
+        }
+
+        // Uppgift 3//
+        function toKelvin() {
+            let c = document.getElementById("celsius").value;
+            document.getElementById("kelvin").innerHTML = Number(c) + 273;
+        }
+
+        // Uppgift 4//
+        let count = 0;
+
+        function plus() {
+            count++;
+            document.getElementById("counter").innerHTML = count;
+        }
+
+        function minus() {
+            count--;
+            document.getElementById("counter").innerHTML = count;
+        }
+
+        // Uppgift 5//
+        function addBg() {
+            document.getElementById("class_text").classList.add("bg");
+        }
+
+        function removeBg() {
+            document.getElementById("class_text").classList.remove("bg");
+        }
+
+        // Uppgift 6//
+        function hideText() {
+            document.getElementById("hideMe").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>

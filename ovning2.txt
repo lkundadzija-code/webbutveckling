@@ -1,0 +1,12 @@
+# CSS
+
+Cascading Style Sheets är en teknik som används för att ändra på presentationsstilen i HTML dokument. Detta är inkluderar bland annat färger, typsnitt, teckenstorlek, position, centrering, med flera. Tekniken är till för att homogenisera hemsidor utifrån olika faktorer som val av webbläsare, storlek på skärmar, installerade typsnitt, osv. En CSS-mall kan används av flera hemsidor och en hemsida kan använda sig av fler mallar vid behov. Detta kan liknas med en "huvudmall" som används för alla hemsidor och en "lokal mall" som används för några (men inte alla) hemsidor.
+
+CSS har utvecklats med åren:
+- CSS1 (tillkom år 1996) tillåter bland annat att ändra på typsnitt, fäger på text och bakgrund, mellanslag mellan text, infoga bilder, skapa tabeller, användning av box-modellen, och mycket mer.
+- CSS2 inkluderar bland annat ett djup (bokstavligt!) i hur man positionerar olika element. Relativ, absolut och fast positionering samt inkluderingen av z-index (djup) introducerades med denna version.
+- CSS3 introducerar mycket som användes idag, bland annat media queries, flexbox, grid, med mera.
+
+Lista på färgnamn [http://www.w3schools.com/tags/ref_colornames.asp]
+Lista på specialtecken [http://www.w3schools.com/html/html_entities.asp]
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map functions</title>
+</head>
+<body>
+
+<div id="result"></div>
+
+<script>
+
+// Uppgift 1
+
+const numbers = [1, 2, 3, 4, 5];
+
+// a) 
+function square(x) {
+    return x * x;
+}
+
+// b) 
+const result1 = numbers.map(square);
+console.log(result1);
+
+// c) 
+const result2 = numbers.map(x => x * x);
+console.log(result2);
+
+// Uppgift 2
+
+
+const words = ["hello", "world", "javascript"];
+
+const bigWords = words.map(word => word.toUpperCase());
+console.log(bigWords);
+
+// Uppgift 3
+
+const users = [
+    { name: "Alice", age: 25 },
+    { name: "Bob", age: 30 },
+    { name: "Charlie", age: 35 }
+];
+
+// a)
+users.forEach(user => {
+    console.log(user.name + " är " + user.age + " år gammal");
+});
+
+// b) 
+const names = users.map(user => user.name);
+console.log(names);
+
+document.getElementById("result").innerHTML =
+    "Kvadrerade tal: " + result1 + "<br>" +
+    "Stora bokstäver: " + bigWords + "<br>" +
+    "Namn: " + names;
+
+</script>
+
+</body>
+</html>

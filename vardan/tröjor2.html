@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChewCan - Våra Produkter</title>
+    <link rel="stylesheet" href="style4.css">
+    <style>
+       
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .cart-wrapper {
+            position: relative;
+            color: white;
+            cursor: pointer;
+            padding: 1rem;
+        }
+        #cart-dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background: white;
+            color: #333;
+            width: 280px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border-radius: 5px;
+            padding: 1rem;
+            z-index: 1000;
+            cursor: default; 
+        }
+        #cart-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        #cart-list li {
+            border-bottom: 1px solid #eee;
+            padding: 8px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .remove-btn {
+            background: #ff4444;
+            color: white;
+            border: none;
+            padding: 2px 8px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.7rem;
+            transition: background 0.2s;
+        }
+        .remove-btn:hover {
+            background: #cc0000;
+        }
+        #cart-dropdown h4 {
+            margin-bottom: 10px;
+            color: #006400;
+            border-bottom: 2px solid #7CFC00;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="container">
+            <h1>Våra Produkter</h1>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index2.html">Om Oss</a></li>
+                <li><a href="tröjor2.html" class="active">Produkter</a></li>
+                <li><a href="contact2.html">Kontakt</a></li>
+            </ul>
+            
+            <div class="cart-wrapper" onclick="toggleCart(event)">
+                <span>🛒 Varukorg (<span id="cart-count">0</span>)</span>
+                <div id="cart-dropdown" onclick="event.stopPropagation()">
+                    <h4>Din varukorg</h4>
+                    <ul id="cart-list">
+                        <li style="color: #888;">Korgen är tom</li>
+                    </ul>
+                    <p style="font-size: 0.8rem; border-top: 1px solid #ddd; padding-top: 10px; margin-top: 10px;">
+                        <i>Online-betalning är ej aktiv (UF-demo)</i>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="content-box">
+            <h2>ChewCan Dosan</h2>
+            <p>Här kan du hantera dina val. Lägg till produkter och rensa korgen som du vill.</p>
+        </div>
+
+        <div class="product-grid">
+            
+            <article class="card">
+                <img src="vardan1.jpg"ChewCan Mentol">
+                <h3>ChewCan Mentol</h3>
+                <p>Stilren dosa med två fack</p>
+                <p class="price">25 kr</p>
+                <button onclick="addToCart('ChewCan Original')">Lägg i varukorg</button>
+            </article>
+
+            <article class="card">
+                <img src="vardan2.jpg"ChewCan Bubble Cum">
+                <h3>ChewCan Bubble Cum</h3>
+                <p>Extra fräschör</p>
+                <p class="price">25 kr</p>
+                <button onclick="addToCart('ChewCan Mint')">Lägg i varukorg</button>
+            </article>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>ChewCan UF</p>
+        </div>
+    </footer>
+
+    <script>
+        let cart = [];
+
+        function addToCart(productName) {
+            // Lägg till produkten i listan
+            cart.push(productName);
+            updateCartUI();
+            
+            // Öppna korgen automatiskt för att visa feedback
+            document.getElementById('cart-dropdown').style.display = 'block';
+        }
+
+        function removeFromCart(index) {
+            // Ta bort den specifika varan baserat på dess plats i listan (index)
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function toggleCart(event) {
+            const dropdown = document.getElementById('cart-dropdown');
+            // Hindrar rutan från att stängas om man klickar inuti den
+            const isVisible = dropdown.style.display === 'block';
+            dropdown.style.display = isVisible ? 'none' : 'block';
+        }
+
+        function updateCartUI() {
+            const cartCount = document.getElementById('cart-count');
+            const cartList = document.getElementById('cart-list');
+            
+            // Uppdatera antal
+            cartCount.innerText = cart.length;
+            
+            // Rensa gamla listan
+            cartList.innerHTML = "";
+            
+            if (cart.length === 0) {
+                cartList.innerHTML = '<li style="color: #888;">Korgen är tom</li>';
+            } else {
+                // Skapa en rad för varje produkt med en ta bort-knapp
+                cart.forEach((item, index) => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        ${item} 
+                        <button class="remove-btn" onclick="removeFromCart(${index})">Ta bort</button>
+                    `;
+                    cartList.appendChild(li);
+                });
+            }
+        }
+
+        // Stäng korgen om man klickar utanför nav
+        window.onclick = function(event) {
+            if (!event.target.closest('.cart-wrapper')) {
+                document.getElementById('cart-dropdown').style.display = 'none';
+            }
+        }
+    </script>
+
+</body>
+</html>

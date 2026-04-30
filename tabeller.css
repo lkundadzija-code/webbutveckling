@@ -1,0 +1,40 @@
+.exempel{
+    border: 1px solid black;
+    width: 800px;
+    height: 800px;
+    border-width: 0;
+    /* border-collapse: collapse; */
+    border-spacing: 20px;
+
+}
+
+td{
+    border: 1px solid black;
+    padding: 2px;
+}
+
+tr{
+    border: 1px solid black;
+}
+
+.upp{
+    padding-bottom: 200px;
+    height: 30px;
+}
+
+.ner{
+    padding-top: 200px;
+    height: 30px;
+}
+
+.mitten{
+    text-align: center;
+}
+
+.vänster{
+    text-align: right;
+}
+
+table td{
+    border-width: 0px;
+}

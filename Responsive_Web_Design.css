@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "nav nav"
+        "aside main"
+        "footer footer";
+    grid-template-columns: 1fr 2fr;
+    min-height: 100vh;
+    gap: 5px;
+}
+
+header {
+    grid-area: header;
+    background-color:aqua;
+    text-align: center;
+    padding: 20px;
+     }
+
+nav { 
+    grid-area: nav; 
+    display: flex;
+    justify-content:space-around; 
+    background:greenyellow;
+    padding: 10px;
+     }
+
+aside { 
+    grid-area: aside;
+    background: steelblue; 
+    color: white;
+    padding: 15px;
+     }
+main { 
+    grid-area: main;
+    background: burlywood;
+    padding: 15px;
+     }
+footer { 
+    grid-area: footer;
+    background: darkorange;
+    color: white;
+    text-align: center;
+    padding: 20px; 
+    }
+
+nav a {
+    background-color: burlywood;
+    border: 1px solid brown;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+}
+nav a:hover { background: orange; color: white; }
+
+section {
+    background: turquoise;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+article {
+    background: teal;
+    color: white;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+.width { width: 250px; }
+
+@media (max-width: 580px) {
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .grid-container {
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "footer";
+        grid-template-columns: 1fr;
+    }
+
+    aside {
+        display: none;
+    }
+}
+
+@media (min-width: 580px) and (max-width: 768px) {
+    aside {
+        display: none;
+    }
+
+    .grid-container {
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "footer";
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .grid-container {
+        grid-template-areas:
+            "header header"
+            "nav nav"
+            "main aside"
+            "footer footer";
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-container {
+        grid-template-areas:
+            "header nav"
+            "aside main"
+            "footer footer";
+        grid-template-columns: 2fr 1fr;
+        width: 1024px;
+        margin: 0 auto;
+    }
+
+    nav {
+        flex-direction: column;
+        justify-content: center;
+    }
+}
